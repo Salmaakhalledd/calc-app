@@ -8,6 +8,12 @@ pipeline {
             }
         }
 
+        stage('Run Tests') {
+            steps {
+                bat 'docker run --rm calc-app python test_calculator.py'
+            }
+        }
+
         stage('Run Calculator in Docker') {
             steps {
                 bat 'docker run --rm calc-app'
